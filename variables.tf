@@ -22,10 +22,6 @@ variable "admin_username" {
   type = "string"
 }
 
-variable "admin_password" {
-  type = "string"
-}
-
 variable "prefix" {
   type    = "string"
   default = "jake-test"
@@ -64,4 +60,9 @@ variable "os_disk_caching_type" {
 variable "os_disk_managed_disk_type" {
   type    = "string"
   default = "Standard_LRS"
+}
+
+variable "domain_name" {
+  type    = "string"
+  default = "jakemorgan.io"
 }

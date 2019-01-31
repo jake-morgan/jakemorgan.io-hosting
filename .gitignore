@@ -1,6 +1,11 @@
 # OS files
 .DS_Store
 
+# Keys
+.ssh/
+*.pub
+felindre
+
 # Backend config files
 backend.tfvars
 

@@ -35,11 +35,15 @@ resource "azurerm_virtual_machine" "main" {
   os_profile {
     computer_name  = "${var.prefix}-vm"
     admin_username = "${var.admin_username}"
-    admin_password = "${var.admin_password}"
   }
 
   os_profile_linux_config {
-    disable_password_authentication = false
+    disable_password_authentication = true
+
+    ssh_keys {
+      key_data = "${file("~/.ssh/${var.prefix}.pub")}"
+      path     = "/home/${var.admin_username}/.ssh/authorized_keys"
+    }
   }
 
   delete_data_disks_on_termination = true
