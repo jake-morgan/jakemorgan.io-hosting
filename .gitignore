@@ -1,0 +1,9 @@
+# OS files
+.DS_Store
+
+# Backend config files
+backend.tfvars
+
+# State files
+.terraform/
+*.tfstate*
