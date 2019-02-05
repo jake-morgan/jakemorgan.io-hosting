@@ -1,0 +1,16 @@
+---
+- name: install yum-utils
+  yum:
+    name: yum-utils
+    state: latest
+
+- name: enable rhel-extras
+  shell: yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+
+- name: install certbot
+  yum:
+    name: python2-certbot-nginx
+    state: latest
+
+# - name: get ssl certificate
+#   shell: certbot --nginx -n -d {{ domains }} --agree-tos -m {{ email }}
