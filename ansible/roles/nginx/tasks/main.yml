@@ -10,34 +10,36 @@
     state: latest
   notify: start nginx
 
-# - name: add nginx config
-#   copy:
-#     src: nginx.conf
-#     dest: /etc/nginx/nginx.conf
-#     owner: nginx
-#     group: nginx
-#   notify: restart nginx
+- name: add nginx config
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart nginx
 
-# - name: add site config
-#   copy:
-#     src: jakemorgan.io.conf
-#     dest: /etc/nginx/conf.d/jakemorgan.io.conf
-#     owner: nginx
-#     group: nginx
-#   notify: restart nginx
+- name: add site config
+  copy:
+    src: jakemorgan.io.conf
+    dest: /etc/nginx/conf.d/jakemorgan.io.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart nginx
 
-# - name: install yum-utils
-#   yum:
-#     name: yum-utils
-#     state: latest
+- name: install yum-utils
+  yum:
+    name: yum-utils
+    state: latest
 
-# - name: enable rhel-extras
-#   shell: yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+- name: enable rhel-extras
+  shell: yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
 
-# - name: install certbot
-#   yum:
-#     name: python2-certbot-nginx
-#     state: latest
+- name: install certbot
+  yum:
+    name: python2-certbot-nginx
+    state: latest
 
 # - name: get ssl certificate
-#   shell: certbot --nginx -n -d {{ domains }}
+#   shell: certbot --nginx -n -d {{ domains }} --agree-tos -m {{ email }}

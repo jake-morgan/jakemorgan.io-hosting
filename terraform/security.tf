@@ -32,19 +32,19 @@ resource "azurerm_network_security_rule" "ftp_20_inbound" {
   network_security_group_name = "${azurerm_network_security_group.main.name}"
 }
 
-resource "azurerm_network_security_rule" "ftp_20_outbound" {
-  name                        = "ftp-20-out-sg"
-  priority                    = 202
-  direction                   = "Outbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
-  source_port_range           = "*"
-  destination_port_range      = "20"
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
-}
+# resource "azurerm_network_security_rule" "ftp_20_outbound" {
+#   name                        = "ftp-20-out-sg"
+#   priority                    = 202
+#   direction                   = "Outbound"
+#   access                      = "Allow"
+#   protocol                    = "Tcp"
+#   source_port_range           = "*"
+#   destination_port_range      = "20"
+#   source_address_prefix       = "*"
+#   destination_address_prefix  = "*"
+#   resource_group_name         = "${azurerm_resource_group.main.name}"
+#   network_security_group_name = "${azurerm_network_security_group.main.name}"
+# }
 
 resource "azurerm_network_security_rule" "ftp_21_inbound" {
   name                        = "ftp-21-in-sg"
@@ -60,19 +60,19 @@ resource "azurerm_network_security_rule" "ftp_21_inbound" {
   network_security_group_name = "${azurerm_network_security_group.main.name}"
 }
 
-resource "azurerm_network_security_rule" "ftp_21_outbound" {
-  name                        = "ftp-21-out-sg"
-  priority                    = 203
-  direction                   = "Outbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
-  source_port_range           = "*"
-  destination_port_range      = "21"
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
-}
+# resource "azurerm_network_security_rule" "ftp_21_outbound" {
+#   name                        = "ftp-21-out-sg"
+#   priority                    = 203
+#   direction                   = "Outbound"
+#   access                      = "Allow"
+#   protocol                    = "Tcp"
+#   source_port_range           = "*"
+#   destination_port_range      = "21"
+#   source_address_prefix       = "*"
+#   destination_address_prefix  = "*"
+#   resource_group_name         = "${azurerm_resource_group.main.name}"
+#   network_security_group_name = "${azurerm_network_security_group.main.name}"
+# }
 
 resource "azurerm_network_security_rule" "http_inbound" {
   name                        = "http-in-sg"

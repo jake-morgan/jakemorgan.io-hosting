@@ -1,5 +1,6 @@
-# OS files
+# OS and config files
 *.DS_Store
+.vscode?
 
 # Keys
 .ssh/
