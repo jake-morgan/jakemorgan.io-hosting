@@ -16,4 +16,4 @@ backend.tfvars
 *.tfplan
 
 # Ansible files
-inventory
+*/inventory
