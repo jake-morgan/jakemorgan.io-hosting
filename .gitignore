@@ -1,6 +1,6 @@
 # OS and config files
 *.DS_Store
-.vscode?
+.vscode/
 
 # Keys
 .ssh/
@@ -10,6 +10,7 @@ felindre
 # Backend config files
 backend.tfvars
 
-# State files
+# Terraform files
 .terraform/
 *.tfstate*
+*.tfplan
