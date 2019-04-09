@@ -1,13 +1,28 @@
 ---
-- name: install yum-utils
-  yum:
-    name: yum-utils
+- name: install software properties common
+  apt:
+    name: software-properties-common
+    update_cache: yes
     state: latest
 
-- name: enable rhel-extras
-  shell: yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+- name: add universe repository
+  apt_repository:
+    repo: deb http://archive.ubuntu.com/ubuntu bionic universe
+
+- name: add certbot repository
+  apt_repository:
+    repo: ppa:certbot/certbot
+  notify: apt update
 
 - name: install certbot
-  yum:
-    name: python2-certbot-nginx
+  apt:
+    name: certbot
     state: latest
+
+- name: install certbot nginx
+  apt:
+    name: python-certbot-nginx
+    state: latest
+
+- name: get certificates
+  shell: certbot --nginx -n -m {{email}} --agree-tos --redirect --expand --domains {{domains}}

@@ -1,2 +1,5 @@
 ---
-# handlers file for certbot
+- name: apt update
+  apt:
+    upgrade: yes
+    update_cache: yes
