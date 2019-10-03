@@ -4,4 +4,6 @@
   roles:
     - nginx
     - certbot
-    - users
+    - role: create-sudo-user
+      vars:
+        username: jenkins

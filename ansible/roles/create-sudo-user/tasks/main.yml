@@ -12,13 +12,13 @@
     line: "%wheel ALL=(ALL) NOPASSWD: ALL"
     validate: "visudo -cf %s"
 
-- name: create jenkins user
+- name: create the user
   user:
-    name: jenkins
+    name: "{{username}}"
     state: present
     groups: wheel
 
-- name: add jenkins ssh key
+- name: add users ssh key
   authorized_key:
-    user: jenkins
-    key: "{{ lookup('file', '~/.ssh/jenkins.pub') }}"
+    user: "{{username}}"
+    key: "{{ lookup('file', '~/.ssh/{{username}}.pub') }}"
