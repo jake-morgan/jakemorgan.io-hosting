@@ -1,8 +1,8 @@
-rg_name = "felindre-rg"
+rg_name = "jakemorgan-io"
 
 location = "North Europe"
 
-prefix = "felindre"
+prefix = "jakemorgan"
 
 admin_username = "jake"
 

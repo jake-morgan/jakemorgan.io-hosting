@@ -1,0 +1,24 @@
+---
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
+
+- name: allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^%wheel"
+    line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
+
+- name: create jenkins user
+  user:
+    name: jenkins
+    state: present
+    groups: wheel
+
+- name: add jenkins ssh key
+  authorized_key:
+    user: jenkins
+    key: "{{ lookup('file', '~/.ssh/jenkins.pub') }}"

@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "main" {
   name                = "${var.prefix}-network-sg"
-  resource_group_name = "${azurerm_resource_group.main.name}"
-  location            = "${var.location}"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = var.location
 }
 
 resource "azurerm_network_security_rule" "ssh_inbound" {
@@ -14,8 +14,8 @@ resource "azurerm_network_security_rule" "ssh_inbound" {
   destination_port_range      = "22"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 resource "azurerm_network_security_rule" "ftp_20_inbound" {
@@ -28,8 +28,8 @@ resource "azurerm_network_security_rule" "ftp_20_inbound" {
   destination_port_range      = "20"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 # resource "azurerm_network_security_rule" "ftp_20_outbound" {
@@ -56,8 +56,8 @@ resource "azurerm_network_security_rule" "ftp_21_inbound" {
   destination_port_range      = "21"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 # resource "azurerm_network_security_rule" "ftp_21_outbound" {
@@ -84,8 +84,8 @@ resource "azurerm_network_security_rule" "http_inbound" {
   destination_port_range      = "80"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 resource "azurerm_network_security_rule" "http_outbound" {
@@ -98,8 +98,8 @@ resource "azurerm_network_security_rule" "http_outbound" {
   destination_port_range      = "80"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 resource "azurerm_network_security_rule" "https_inbound" {
@@ -112,8 +112,8 @@ resource "azurerm_network_security_rule" "https_inbound" {
   destination_port_range      = "443"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 resource "azurerm_network_security_rule" "https_outbound" {
@@ -126,8 +126,8 @@ resource "azurerm_network_security_rule" "https_outbound" {
   destination_port_range      = "443"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 resource "azurerm_network_security_rule" "deny_all_inbound" {
@@ -140,8 +140,8 @@ resource "azurerm_network_security_rule" "deny_all_inbound" {
   destination_port_range      = "*"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
 
 resource "azurerm_network_security_rule" "deny_all_outbound" {
@@ -154,6 +154,7 @@ resource "azurerm_network_security_rule" "deny_all_outbound" {
   destination_port_range      = "*"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = "${azurerm_resource_group.main.name}"
-  network_security_group_name = "${azurerm_network_security_group.main.name}"
+  resource_group_name         = azurerm_resource_group.main.name
+  network_security_group_name = azurerm_network_security_group.main.name
 }
+
