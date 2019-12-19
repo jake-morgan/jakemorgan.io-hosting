@@ -1,0 +1,8 @@
+---
+- name: download docker-compose binary
+  shell: curl -L "https://github.com/docker/compose/releases/download/{{version}}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+- name: apply executable permissions to binary
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: a+x

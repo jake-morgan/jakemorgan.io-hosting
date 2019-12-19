@@ -3,6 +3,8 @@
   become: yes
   roles:
     - nginx
+    - dockerce
+    - docker-compose
     - certbot
     - role: create-sudo-user
       vars:
