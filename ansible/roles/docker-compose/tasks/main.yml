@@ -6,3 +6,16 @@
   file:
     path: /usr/local/bin/docker-compose
     mode: a+x
+
+- name: create site directory if it does not exist
+  file:
+    path: /home/jake/jakemorgan.io
+    state: directory
+    mode: "0755"
+
+- name: upload docker-compose file
+  copy:
+    src: docker-compose.yml
+    dest: /home/jake/jakemorgan.io/docker-compose.yml
+    owner: root
+    group: root
