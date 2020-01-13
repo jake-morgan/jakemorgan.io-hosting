@@ -6,4 +6,4 @@ prefix = "jakemorgan"
 
 admin_username = "jake"
 
-domain_name = "jakemorgan.io"
+domain_name = "morganj.co.uk"

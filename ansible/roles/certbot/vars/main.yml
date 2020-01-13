@@ -1,4 +1,0 @@
----
-# vars file for certbot
-domains: "jakemorgan.io,www.jakemorgan.io"
-email: "{{ lookup('file', '~/.ssh/personal-email') }}"
